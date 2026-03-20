@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>GENDIMENIX: Discovery of Candidate Genetic Subgroups in Dyslexia Using Principal Components Analysis, Uniform Manifold Approximation and Projection, and Hierarchical Density-Based Spatial Clustering of Applications with Noise, with Permutation-Calibrated Single Nucleotide Polymorphism Ranking · Tanglaw: Philippine Journal of Student and Teacher Research</title>
+  <meta name="description" content="This study examines whether individuals who self-report dyslexia form latent genetic subgroups using a cases-only unsupervised learning workflow based on PCA, UMAP, HDBSCAN, and permutation-calibrated SNP ranking."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://padadanhs.github.io/tanglaw/articles/volume-1/discovery-of-genetic-subgroups-in-dyslexia/"/>
+  <link href="/tanglaw/assets/img/logo.png" rel="icon" type="image/png"/>
+  <link href="/tanglaw/assets/css/styles.css" rel="stylesheet"/>
+
+  <meta name="citation_title" content="GENDIMENIX: Discovery of Candidate Genetic Subgroups in Dyslexia Using Principal Components Analysis, Uniform Manifold Approximation and Projection, and Hierarchical Density-Based Spatial Clustering of Applications with Noise, with Permutation-Calibrated Single Nucleotide Polymorphism Ranking"/>
+  <meta name="citation_author" content="Prince Niño V. Baltolore"/>
+  <meta name="citation_author_institution" content="Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines"/>
+  <meta name="citation_author" content="Perie T. Miego"/>
+  <meta name="citation_author_institution" content="Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines"/>
+  <meta name="citation_author" content="Maeru L. Sardido"/>
+  <meta name="citation_author_institution" content="Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines"/>
+  <meta name="citation_journal_title" content="Tanglaw: Philippine Journal of Student and Teacher Research"/>
+  <meta name="citation_publication_date" content="2026/03/24"/>
+  <meta name="citation_online_date" content="2026/03/24"/>
+  <meta name="citation_volume" content="1"/>
+  <meta name="citation_issue" content="1"/>
+  <meta name="citation_language" content="en"/>
+  <meta name="citation_keywords" content="dyslexia; genetics; unsupervised learning; clustering; subgroup discovery; openSNP"/>
+  <meta name="citation_abstract_html_url" content="https://padadanhs.github.io/tanglaw/articles/volume-1/discovery-of-genetic-subgroups-in-dyslexia/"/>
+  <meta name="citation_fulltext_html_url" content="https://padadanhs.github.io/tanglaw/articles/volume-1/discovery-of-genetic-subgroups-in-dyslexia/"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "GENDIMENIX: Discovery of Candidate Genetic Subgroups in Dyslexia Using Principal Components Analysis, Uniform Manifold Approximation and Projection, and Hierarchical Density-Based Spatial Clustering of Applications with Noise, with Permutation-Calibrated Single Nucleotide Polymorphism Ranking",
+    "name": "GENDIMENIX: Discovery of Candidate Genetic Subgroups in Dyslexia Using Principal Components Analysis, Uniform Manifold Approximation and Projection, and Hierarchical Density-Based Spatial Clustering of Applications with Noise, with Permutation-Calibrated Single Nucleotide Polymorphism Ranking",
+    "description": "This study examines whether individuals who self-report dyslexia form latent genetic subgroups using a cases-only unsupervised learning workflow based on PCA, UMAP, HDBSCAN, and permutation-calibrated SNP ranking.",
+    "inLanguage": "en",
+    "datePublished": "2026-03-24",
+    "dateAccepted": "2026-03-19",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://padadanhs.github.io/tanglaw/articles/volume-1/discovery-of-genetic-subgroups-in-dyslexia/",
+    "author": [
+      {"@type": "Person", "name": "Prince Niño V. Baltolore", "affiliation": {"@type": "Organization", "name": "Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines"}},
+      {"@type": "Person", "name": "Perie T. Miego", "affiliation": {"@type": "Organization", "name": "Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines"}},
+      {"@type": "Person", "name": "Maeru L. Sardido", "affiliation": {"@type": "Organization", "name": "Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines"}}
+    ],
+    "isPartOf": {
+      "@type": "PublicationIssue",
+      "issueNumber": "1",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "volumeNumber": "1",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Tanglaw: Philippine Journal of Student and Teacher Research"
+        }
+      }
+    },
+    "keywords": ["dyslexia", "genetics", "unsupervised learning", "clustering", "subgroup discovery", "openSNP"]
+  }
+  </script>
+
+  <style>
+    .journal-article .hero__kicker { margin-bottom: .55rem; }
+    .journal-article-title {
+      font-size: clamp(1.9rem, 3.2vw, 2.45rem);
+      line-height: 1.15;
+      margin: 0 0 .7rem;
+      color: #11345d;
+    }
+    .article-top-card {
+      border-top: 5px solid #173b63;
+      padding-top: 1.25rem;
+    }
+    .article-byline {
+      display: grid;
+      gap: .7rem;
+      margin: .95rem 0 1rem;
+    }
+    .article-authors {
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: #173b63;
+      line-height: 1.45;
+    }
+    .article-affiliation,
+    .article-correspondence {
+      color: #4a5e73;
+      margin: 0;
+    }
+    .article-meta-panel {
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border: 1px solid #d9e2ef;
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      margin-top: .6rem;
+    }
+    .article-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .9rem 1.2rem;
+    }
+    .article-meta-grid p { margin: 0; }
+    .article-meta-grid strong { color: #153a63; }
+    .article-abstract p:last-child,
+    .article-content p:last-child,
+    .article-notes p:last-child { margin-bottom: 0; }
+    .article-content {
+      line-height: 1.75;
+      font-size: 1.01rem;
+    }
+    .article-content h2 {
+      margin: 2rem 0 1rem;
+      font-size: 1.55rem;
+      line-height: 1.25;
+      color: #11345d;
+      border-bottom: 1px solid #d9e2ef;
+      padding-bottom: .35rem;
+    }
+    .article-content h3 {
+      margin: 1.5rem 0 .75rem;
+      font-size: 1.14rem;
+      line-height: 1.35;
+      color: #1f4d86;
+    }
+    .article-content p { margin: 0 0 1rem; }
+    .article-content .article-figure {
+      margin: 1.6rem auto .55rem;
+      text-align: center;
+    }
+    .article-content .article-figure img,
+    .article-content .article-figure-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #d9e2ef;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(17,52,93,.08);
+      margin-inline: auto;
+    }
+    .article-content .article-figure--panel img {
+      width: min(920px, 100%);
+    }
+    .article-content .article-figcaption,
+    .article-content .article-table-caption {
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: #3f5268;
+      margin: .55rem 0 1.1rem;
+      text-align: center;
+    }
+    .article-content .article-table-caption {
+      text-align: left;
+      margin-top: 1.4rem;
+      margin-bottom: .55rem;
+      color: #31445f;
+    }
+    .article-content .article-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 0 0 1.5rem;
+      font-size: 0.96rem;
+      background: #fff;
+      border: 1px solid #d9e2ef;
+      border-radius: 14px;
+      overflow: hidden;
+      display: table;
+    }
+    .article-content .article-table th,
+    .article-content .article-table td {
+      border-right: 1px solid #d9e2ef;
+      border-bottom: 1px solid #d9e2ef;
+      padding: 0.72rem 0.88rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    .article-content .article-table tr:last-child td { border-bottom: 0; }
+    .article-content .article-table th:last-child,
+    .article-content .article-table td:last-child { border-right: 0; }
+    .article-content .article-table th {
+      background: #f4f8fc;
+      color: #12355e;
+      font-weight: 700;
+    }
+    .article-content .reference-list,
+    .article-content ol.reference-list {
+      padding-left: 1.25rem;
+      line-height: 1.7;
+    }
+    .article-content .reference-list li { margin-bottom: .8rem; }
+    .equation-block {
+      margin: 1rem 0 1.25rem;
+      padding: .95rem 1rem;
+      border-left: 4px solid #2f5f8f;
+      background: #f7fbff;
+      border-radius: 0 14px 14px 0;
+      overflow-x: auto;
+      font-family: "Times New Roman", Georgia, serif;
+    }
+    .equation-block code,
+    .equation-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 1rem;
+    }
+    .article-notes p {
+      margin: 0 0 .95rem;
+    }
+    .article-notes strong {
+      color: #153a63;
+    }
+    @media (max-width: 700px) {
+      .journal-article-title { font-size: 1.85rem; }
+      .article-meta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/tanglaw/">
+        <img alt="Tanglaw logo" class="brand__logo" src="/tanglaw/assets/img/logo.svg"/>
+        <div class="brand__text">
+          <span class="brand__title">Tanglaw: Philippine Journal of Student and Teacher Research</span>
+          <span class="brand__subtitle">Open Access • Peer Reviewed • Rolling Publication</span>
+        </div>
+      </a>
+      <input aria-label="Toggle navigation" class="nav-toggle" id="nav-toggle" type="checkbox"/>
+      <label aria-hidden="true" class="nav-burger" for="nav-toggle"><span></span></label>
+      <nav aria-label="Primary" class="site-nav">
+        <ul>
+          <li><a class="nav__link" href="/tanglaw/">Home</a></li>
+          <li><a class="nav__link" href="/tanglaw/about/">About</a></li>
+          <li><a class="nav__link" href="/tanglaw/aims-and-scope/">Aims &amp; Scope</a></li>
+          <li><a aria-current="page" class="nav__link" href="/tanglaw/articles/">Articles</a></li>
+          <li><a class="nav__link" href="/tanglaw/editorial-board/">Editorial Board</a></li>
+          <li><a class="nav__link" href="/tanglaw/for-authors/">For Authors</a></li>
+          <li><a class="nav__link nav__link--button" href="/tanglaw/submit/">Submit</a></li>
+          <li><a class="nav__link" href="/tanglaw/archive/">Archive</a></li>
+          <li><a class="nav__link" href="/tanglaw/news/">News</a></li>
+          <li><a class="nav__link" href="/tanglaw/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-shell journal-article" id="main">
+    <article class="stack">
+      <div class="breadcrumb"><a href="/tanglaw/">Home</a> / <a href="/tanglaw/articles/">Articles</a> / <a href="/tanglaw/archive/volume-1/">Volume 1</a> / <span>Volume 1</span></div>
+
+      <section class="card article-top-card">
+        <p class="hero__kicker">Research Article</p>
+        <h2 class="journal-article-title" style="font-size:2rem;">GENDIMENIX: Discovery of Candidate Genetic Subgroups in Dyslexia Using Principal Components Analysis, Uniform Manifold Approximation and Projection, and Hierarchical Density-Based Spatial Clustering of Applications with Noise, with Permutation-Calibrated Single Nucleotide Polymorphism Ranking</h2>
+        <div class="article-byline">
+          <div class="article-authors">Prince Niño V. Baltolore, Perie T. Miego, Maeru L. Sardido</div>
+          <p class="article-affiliation"><strong>Affiliation:</strong> Padada National High School, Northern Paligue, Padada, Davao del Sur, Philippines</p>
+          <p class="article-correspondence"><strong>Corresponding author:</strong> <a href="mailto:baltoloreprince@gmail.com">baltoloreprince@gmail.com</a></p>
+        </div>
+        <div class="meta"><span>Volume 1</span><span>Science and Technology</span><span>Published March 24, 2026</span></div>
+        <div class="article-meta-panel">
+          <div class="article-meta-grid">
+            <p><strong>Article history:</strong> Received January 10, 2026; Revised February 1, 2026; Accepted March 19, 2026</p>
+            <p><strong>Volume and issue:</strong> Volume 1, Issue 1</p>
+            <p><strong>Article number:</strong> 0001</p>
+            <p><strong>Keywords:</strong> dyslexia, genetics, unsupervised learning, clustering, subgroup discovery, openSNP</p>
+            <p><strong>License:</strong> CC BY-SA 4.0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card article-abstract">
+        <h2>Abstract</h2>
+        <p>Dyslexia is a widespread learning difficulty that affects reading and writing even when instruction and general intelligence are sufficient. Research has long suggested that hereditary factors play an important role, yet most studies treat individuals with dyslexia as if they belong to a single group. Learners show diverse strengths, challenges, and responses to support, raising the possibility that their genetic backgrounds may also differ in meaningful ways. This study explores whether individuals who share a dyslexia diagnosis also share smaller patterns in their genetic profiles. Using openly available genetic information, the research applies an approach that groups individuals based on natural similarities rather than predefined categories. The goal is to determine whether hidden subgroup patterns can be detected even in a small collection of cases. Here we show that the individuals examined form several distinct genetic subgroups rather than one uniform group. These patterns remain recognizable across repeated analyses and are linked to subtle genetic differences that can guide future investigation. These findings suggest that dyslexia may arise through multiple genetic pathways. By demonstrating this, the study offers a framework that future research can build upon to understand learning differences with greater precision and to inform more responsive educational support.</p>
+      </section>
+
+      <section class="card">
+        <h2>Suggested citation</h2>
+        <p>Baltolore, P. N. V., Miego, P. T., &amp; Sardido, M. L. (2026). <em>GENDIMENIX: Discovery of Candidate Genetic Subgroups in Dyslexia Using Principal Components Analysis, Uniform Manifold Approximation and Projection, and Hierarchical Density-Based Spatial Clustering of Applications with Noise, with Permutation-Calibrated Single Nucleotide Polymorphism Ranking</em>. <em>Tanglaw: Philippine Journal of Student and Teacher Research</em>, 1(1), Article 0001.</p>
+      </section>
+
+      <section class="card article-content">
+        
+<h2>1. Introduction</h2><p>Developmental dyslexia is a common neurodevelopmental condition that
+impairs accurate and fluent word recognition and spelling, with global
+prevalence estimates near seven percent in school-age children and
+persistent functional impact into adulthood (Yang et al., 2022; Doust et
+al., 2022). Family and twin studies indicate substantial heritability
+and a complex, polygenic architecture. Large genome-wide association
+studies have identified multiple loci of small effect, reinforcing that
+risk is distributed across many variants rather than driven by a single
+gene of large effect (Doust et al. 2022; Gialluisi et al. 2021). These
+facts create two challenges for studies with modest sample sizes:
+individual variant effects are small, which limits power for traditional
+case-control tests, and dyslexia likely encompasses etiologic
+heterogeneity, meaning that distinct genetic patterns may exist among
+affected individuals even within one cohort (Yang et al. 2022; Doust et
+al. 2022; Gialluisi et al. 2021).</p><p>High-dimensional single nucleotide polymorphism (SNP) data present
+practical difficulties for small cohorts. Linear dimensionality
+reduction with principal components analysis (PCA) is an established
+first step in population genetics and GWAS pipelines because it
+summarizes ancestry-related variation and helps correct confounding due
+to population stratification (Price et al., 2006). However, PCA
+emphasizes global variance and may underrepresent fine-scale or
+non-linear relationships that are relevant for discovering within-case
+substructure. Non-linear manifold learning methods, including
+t-distributed stochastic neighbor embedding (t-SNE) and uniform manifold
+approximation and projection (UMAP), can reveal local neighborhoods in
+high-dimensional genotype space and are widely used for exploratory
+visualization in genomics, especially when applied after PCA to denoise
+inputs (van der Maaten and Hinton 2008; Becht et al. 2019;
+Diaz-Papkovich et al. 2019). Best-practice studies also document how
+parameter choices and initialization influence the faithfulness of t-SNE
+visualizations, which motivates principled, reproducible settings in
+small datasets (Kobak &amp; Berens, 2019). In this study, clustering is
+performed on UMAP embeddings, while t-SNE is retained for visualization
+comparability.</p><p>Clustering methods differ in their assumptions about cluster shape,
+number, and noise. Hierarchical Density-Based Spatial Clustering of
+Applications with Noise (HDBSCAN) extends DBSCAN by building a cluster
+hierarchy that accommodates variable-density structure and provides soft
+membership scores while preserving an explicit noise class. These
+properties are desirable in small, noisy biological cohorts. HDBSCAN is
+a robust alternative to density-based methods across a range of
+densities and shapes (Campello et al., 2013; Campello et al., 2015).
+When paired with low-dimensional embeddings from PCA, t-SNE, or UMAP,
+HDBSCAN can detect compact subgroups while limiting spurious partitions
+in very small samples. To guard against over-interpretation in a
+small-<em>n</em> setting, we assess clustering with internal validity
+indices and evaluate robustness through SNP-subsampling bootstrap
+co-clustering. We also compare partitions with a complementary
+graph-based approach (Louvain on a <em>k</em>-nearest-neighbor graph)
+and with Gaussian mixture models evaluated by the Bayesian Information
+Criterion (BIC), providing qualitative checks that the primary results
+are not artifacts of a single algorithm (Blondel et al. 2008; Caliński
+and Harabasz 1974; Davies and Bouldin 1979; Schwarz 1978). In addition
+to finding putative subgroups, a key goal is to prioritize SNPs that
+differentiate clusters. Classical univariate measures such as
+analysis-of-variance F-statistics and mutual information can score
+SNP-cluster association, but small samples call for careful calibration
+of statistical evidence. Permutation testing is a natural choice because
+it makes minimal distributional assumptions. However, standard practice
+can yield zero <em>p</em>-values when the observed statistic exceeds all
+permuted values. The recommended correction adds one to the numerator
+and denominator, producing valid, non-zero permutation <em>p</em>-values
+for any number of permutations (Phipson &amp; Smyth, 2010). For
+computational tractability in a small-<em>n</em>, high-<em>p</em>
+setting, we evaluate a capped subset of variable SNPs. This approach is
+widely adopted in genomics and fits the exploratory nature of cases-only
+analyses.</p><p>Taken together, these considerations motivate a cases-only,
+unsupervised workflow that couples PCA preprocessing with UMAP
+embeddings and HDBSCAN clustering, validates structure via
+SNP-subsampling bootstrap co-clustering, and cross-checks with Louvain
+graph clustering and a Gaussian mixture baseline. We then prioritize
+SNPs using permutation-calibrated ranking. In our cohort, we report
+evidence for four potential genetic subtypes (candidate genetic
+subgroups) within dyslexia cases and provide a reproducible template for
+confirming and interpreting such structure in larger, mixed case-control
+cohorts (Campello, Moulavi, and Sander 2013; Campello et al. 2015;
+Blondel et al. 2008; Schwarz 1978; Phipson and Smyth 2010). Identifying
+candidate genetic subgroups is useful because it concentrates follow-up
+on more homogeneous sets of cases. This enables targeted replication of
+candidate variants and pathways, clearer links to reading and
+neurocognitive profiles, and better-powered stratified analyses in
+future studies.</p><h2>2. Method</h2><h3>2.1 Data Source and Preprocessing</h3><p>The single nucleotide polymorphism (SNP) dataset was obtained from
+the openSNP database, which hosts publicly available genotype and
+phenotype data contributed by users of direct-to-consumer testing
+platforms such as 23andMe, deCODEme, and FamilyTreeDNA. Genotype files
+are typically provided in Variant Call Format (VCF), with
+meta-information and a header specifying chromosome, position, SNP
+identifier, and genotype calls; phenotype fields are supplied
+separately. From an initial cohort of 248 individuals, a subset of 36
+individuals self-reported dyslexia was selected for analysis. A
+cases-only design was adopted due to the absence of matched
+controls.</p><p>Genotype files were converted to a numeric genotype matrix with
+additive coding as 0, 1, or 2 copies of the alternate allele, and
+organized as samples × SNPs. Prior to
+analysis, an automatic orientation check verified that rows corresponded
+to samples and columns to SNPs; the matrix was transposed when rsIDs
+indicated that SNPs were stored as rows.</p><p>Quality control removed SNPs with a missing call rate greater than
+50% and excluded individuals with more than 50% missing genotypes. SNPs
+were retained if the minor allele count was at least 1 and the minor
+allele frequency lay between 0 and 0.5. Missing values were imputed by
+column means for the main analyses, with <em>k</em>-nearest neighbors
+imputation available for sensitivity checks. This pipeline produced a
+cleaned matrix <strong>X</strong><sup><em>Q</em><em>C</em></sup> ∈ ℝ<sup><em>n</em> × <em>p</em></sup>
+with <em>n</em> = 21 samples and <em>p</em> ≈ 480, 932 SNPs in the present
+run.</p><h3>2.2 Dimensionality Reduction</h3><p>Given the high dimensionality of SNP data, dimensionality reduction
+was performed prior to clustering. Principal components analysis (PCA)
+was applied to the standardized, <em>Q</em><em>C</em>-filtered matrix <strong>X</strong><sup><em>Q</em><em>C</em></sup>
+to reduce noise and extract orthogonal components that capture maximal
+variance. PCA retained up to 20 components, bounded by <em>n</em> − 1, and we recorded the explained
+variance and cumulative variance for reporting. The resulting principal
+component scores served as inputs to the embedding methods.</p><p>The reduced representation was embedded into two dimensions using
+t-distributed stochastic neighbor embedding (t-SNE) and uniform manifold
+approximation and projection (UMAP). Clustering was performed on UMAP
+embeddings, while t-SNE was used for visualization comparability. t-SNE
+preserves local neighborhoods by minimizing the Kullback-Leibler
+divergence between high- and low-dimensional similarity distributions
+(van der Maaten &amp; Hinton, 2008). UMAP is based on manifold learning
+and fuzzy simplicial sets and aims to preserve both local and global
+structure in low dimensions (McInnes et al., 2018; Becht et al.,
+2019).</p><h3>2.3 Clustering Analysis</h3><p>Clustering was performed only on the two-dimensional UMAP embeddings
+using Hierarchical Density-Based Spatial Clustering of Applications with
+Noise (HDBSCAN), which accommodates variable-density structure and
+retains an explicit noise class (Campello et al. 2013; Campello et al.
+2015). t-SNE embeddings were used for visualization comparability.</p><p>A grid search spanned UMAP hyperparameters (<em>n_neighbors</em>
+∈ {3, 5, 10}, <em>min_dist</em> ∈ {0.0, 0.25, 0.5}, <em>metric</em> ∈ {euclidean, manhattan}) and HDBSCAN
+settings (<em>min_cluster_size</em> ∈
+{2, 3, 4}, <em>min_samples</em> ∈ {1,
+2, 3}). For each combination, internal validity was computed on
+non-noise points, including silhouette, Davies-Bouldin, and
+Caliński-Harabasz indices (Caliński &amp; Harabasz, 1974; Davies &amp;
+Bouldin, 1979). The analysis model used for reporting was chosen by
+maximizing the silhouette score on non-noise points, with the other
+indices provided for context. Samples assigned to the HDBSCAN noise
+class were retained as such and excluded from validity metric
+calculations.</p><h3>2.4 SNP Importance Ranking</h3><p>To identify genetic variants contributing to the observed clustering,
+we computed two SNP–cluster association metrics on non-noise points: the
+one-way ANOVA F-statistic across HDBSCAN cluster labels and mutual
+information between discretized genotypes and cluster labels. Genotypes
+were discretized by tertiles using quantile binning to obtain comparable
+categories.</p><p>For confirmatory calibration, we performed 10,000 label permutations
+restricted to non-noise samples and computed permutation
+<em>p</em>-values with the finite-sample correction of Phipson and Smyth
+(2010). To control computational cost in a high-dimensional,
+small-sample context, we evaluated at most 500 variable SNPs (non-zero
+variance) per run, prioritizing higher-variance sites.</p><h3>2.5 Robustness Assessment</h3><p>To assess clustering robustness in a small-sample setting, we
+conducted a SNP-subsampling bootstrap with <em>B</em> = 200 replicates, each using 70%
+of SNPs without replacement. For every replicate, we recomputed
+principal components, generated UMAP embeddings, and fitted HDBSCAN
+under the selected hyperparameters. We then updated a co-clustering
+probability matrix that records how often each pair of samples was
+assigned to the same non-noise cluster. Per-sample stability was
+summarized by the mean co-clustering probability across partners. We
+report the bootstrap co-clustering heatmap and per-sample stability
+scores as complementary evidence for subgroup structure.</p><p>As complementary baselines, we derived Louvain community labels from
+a <em>k</em>-nearest-neighbor graph constructed on principal components
+and fitted Gaussian mixture models with 1–4 components. Mixture
+complexity preference was evaluated using the BIC (Blondel, Guillaume,
+Lambiotte, &amp; Lefebvre, 2008; Schwarz, 1978). These baselines provide
+qualitative checks that the primary HDBSCAN results are not artifacts of
+a single clustering approach.</p><h3>2.6 Implementation</h3><p>Analyses were conducted in Google Colaboratory. We used
+<em>pandas</em> and <em>NumPy</em> for data handling;
+<em>scikit-learn</em> for PCA, t-SNE, internal validity metrics, and
+Gaussian mixture models; <em>umap-learn</em> for UMAP; <em>hdbscan</em>
+for clustering; <em>python-louvain</em> for graph partitioning;
+<em>matplotlib</em> and seaborn for visualization; and
+<em>statsmodels</em> for multiple-testing utilities. Random seeds were
+set to ensure reproducibility.</p><h2>3. Results and Discussion</h2><p>After quality control the analytic dataset contained 21 individuals
+and approximately 480,932 SNPs (Table 1). Principal components analysis
+of the QC matrix (Figure 1) showed that 16 components explained about 80
+percent of the variance and 18 components about 90 percent, which
+supports using principal components as denoised inputs to manifold
+learning prior to clustering (Price et al. 2006; Becht et al. 2019;
+Diaz-Papkovich et al. 2019).</p><p class="article-table-caption"><strong>Table 1.</strong> Quality-control summary.</p><table class="article-table">
+<colgroup>
+<col style="width: 49%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Metric</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Samples after QC</td>
+<td>21</td>
+</tr>
+<tr class="even">
+<td>SNPs after QC</td>
+<td>480,932</td>
+</tr>
+</tbody>
+</table><p class="article-figure"><img alt="PCA scree plot showing cumulative explained variance." class="article-figure-img" loading="lazy" src="/tanglaw/assets/articles/volume-1/article-1/figure-1-pca-scree-plot.png"/></p><p class="article-figcaption"><strong>Figure 1.</strong> PCA scree plot, cumulative explained
+variance.</p><p>The central result is the identification of four compact candidate
+genetic subgroups among dyslexia cases, with two outliers. In this
+study, a genetic subgroup refers to a set of individuals whose
+genome-wide genotype patterns are more similar to each other than to the
+rest of the cohort, rather than a group defined by a single variant.
+Cluster sizes were 8, 4, 4, and 3 non-noise samples, and two samples
+were labeled as noise. Mean HDBSCAN membership probabilities and
+bootstrap stability were moderate to high within clusters (Table 2),
+consistent with coherent groups in a small cohort.</p><p>Interpreting these clusters, the subgroup labels are immediately
+useful in three ways. First, they can be carried forward as strata or
+covariates in replication cohorts to reduce heterogeneity and improve
+statistical power. Second, they provide anchors for mapping candidate
+variants to genes and pathways, which generates specific biological
+hypotheses. Third, they define targets for phenotypic follow-up to test
+whether subgroups differ in reading measures, comorbidities, or response
+to evidence-based instruction. The two noise-labeled outliers are also
+informative for data audit and future cohort harmonization. In short,
+the subgroup labels convert a single mixed “dyslexia cases” bucket into
+analyzable strata that enable targeted replication, clearer biology via
+pathway mapping, and tests of differential educational response.</p><p class="article-table-caption"><strong>Table 2.</strong> Cluster-level characterization.</p><table class="article-table">
+<colgroup>
+<col style="width: 39%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Metric</strong></th>
+<th><strong>0</strong></th>
+<th><strong>1</strong></th>
+<th><strong>2</strong></th>
+<th><strong>3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Size</td>
+<td>4</td>
+<td>4</td>
+<td>3</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Mean probability</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>0.857</td>
+</tr>
+<tr class="odd">
+<td>Median probability</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>1.000</td>
+<td>0.859</td>
+</tr>
+<tr class="even">
+<td>Mean stability</td>
+<td>0.318</td>
+<td>0.347</td>
+<td>0.338</td>
+<td>0.415</td>
+</tr>
+<tr class="odd">
+<td>Median stability</td>
+<td>0.312</td>
+<td>0.335</td>
+<td>0.310</td>
+<td>0.435</td>
+</tr>
+</tbody>
+</table><p>The clustering was conducted on UMAP embeddings of the principal
+components. A prespecified grid of UMAP settings and HDBSCAN settings
+was evaluated, and the configuration that maximized silhouette on
+non-noise points used UMAP with <em>n_neighbors</em>=3, <em>min_dist</em> =0.0, metric=manhattan together with HDBSCAN with
+<em>min_cluster_size</em>=3 and
+<em>min_samples</em>=1. As mentioned,
+this configuration produced four compact clusters among non-noise points
+with sizes 8, 4, 4, and 3, and two samples labeled as noise (Figures
+2–3; Table 3).</p><p class="article-table-caption"><strong>Table 3.</strong> Clustering and validation summary.</p><table class="article-table">
+<colgroup>
+<col style="width: 59%"/>
+<col style="width: 40%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Item</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>UMAP settings</td>
+<td><em>n_neighbors</em>=3;
+<em>min_dist</em>=0.0;
+<em>metric</em> = <em>m</em>anhattan</td>
+</tr>
+<tr class="even">
+<td>HDBSCAN settings</td>
+<td><em>min_cluster_size</em>=3;
+<em>min_samples</em>=1</td>
+</tr>
+<tr class="odd">
+<td>Clusters, excluding noise</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Cluster sizes</td>
+<td>8, 4, 4, 3</td>
+</tr>
+<tr class="odd">
+<td>Noise points</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>Silhouette (non-noise)</td>
+<td>0.556</td>
+</tr>
+<tr class="odd">
+<td>Davies-Bouldin (non-noise)</td>
+<td>0.522</td>
+</tr>
+<tr class="even">
+<td>Calinski-Harabasz (non-noise)</td>
+<td>42.11</td>
+</tr>
+<tr class="odd">
+<td>Best GMM components by BIC</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Agreement with Louvain (ARI)</td>
+<td>-0.025</td>
+</tr>
+<tr class="odd">
+<td>Agreement with Louvain (NMI)</td>
+<td>0.085</td>
+</tr>
+<tr class="even">
+<td>Bootstrap mean off-diagonal co-clustering probability</td>
+<td>0.383</td>
+</tr>
+</tbody>
+</table><p class="article-figure"><img alt="UMAP embedding colored by HDBSCAN clusters." class="article-figure-img" loading="lazy" src="/tanglaw/assets/articles/volume-1/article-1/figure-2-umap-hdbscan.png"/></p><p class="article-figcaption"><strong>Figure 2.</strong> UMAP embedding colored by HDBSCAN
+clusters.</p><p class="article-figure"><img alt="t-SNE embedding colored by HDBSCAN clusters." class="article-figure-img" loading="lazy" src="/tanglaw/assets/articles/volume-1/article-1/figure-3-tsne-hdbscan.png"/></p><p class="article-figcaption"><strong>Figure 3.</strong> t-SNE embedding colored by HDBSCAN
+clusters.</p><p>Internal validity on non-noise points was silhouette 0.556,
+Davies-Bouldin 0.522, and Calinski–Harabasz 42.11, which indicates clear
+separation and reasonable cohesion for a small cohort (Caliński and
+Harabasz 1974; Davies &amp; Bouldin 1979). A Gaussian mixture baseline
+selected four components by the BIC, which confirms the four-cluster
+solution in a model-based framework (Schwarz, 1978). These outcomes are
+consistent with reports that manifold learning on genetic principal
+components can reveal cryptic substructure in human cohorts, and that
+density-based clustering is advantageous when densities vary and an
+explicit noise class is desirable (McInnes, Healy, and Melville 2018;
+Diaz-Papkovich et al. 2019; Campello, Moulavi, and Sander 2013; Campello
+et al. 2015).</p><p>Robustness was assessed by SNP-subsampling bootstrap with 200
+replicates that each used 70 percent of SNPs without replacement. The
+mean off-diagonal co-clustering probability was 0.383, indicating
+moderate reproducibility across resamples; the heatmap exhibits blocks
+aligned with the four clusters, and two samples co-cluster weakly with
+others, consistent with their noise status (Figure 4). As a
+complementary check, Louvain communities derived from a
+<em>k</em>-nearest-neighbor graph on the principal components showed low
+agreement with HDBSCAN, with adjusted Rand index -0.025 and normalized
+mutual information 0.085 (Table 3). In very small graphs, small changes
+in edges can alter partitions, so low agreement is expected and does not
+contradict subgrouping; the concordant result from the Gaussian mixture
+baseline is more informative in this setting (Blondel et al. 2008).</p><p class="article-figure"><img alt="Bootstrap co-clustering probability heatmap." class="article-figure-img" loading="lazy" src="/tanglaw/assets/articles/volume-1/article-1/figure-4-bootstrap-coclustering-heatmap.png"/></p><p class="article-figcaption"><strong>Figure 4.</strong> Bootstrap co-clustering probability
+heatmap.</p><p>Supplementary Table S1 lists each participant’s HDBSCAN cluster
+label, membership probability, and bootstrap co-clustering stability
+score; these values support the coherence of the four subgroups and
+identify two outliers assigned to the noise class.</p><p>To prioritize variants that differentiate clusters, we computed the
+one-way ANOVA F-statistic and mutual information on non-noise samples
+and then performed 10,000 label permutations with the finite-sample
+correction of Phipson and Smyth (2010). Among the 500 variable SNPs
+evaluated, 23 had permutation <em>p</em> less than 0.05 with a minimum
+<em>p</em> of approximately 0.0047, but none survived Benjamini–Hochberg
+false discovery rate control at <em>q</em> less than 0.10 (Table 4).</p><p class="article-table-caption"><strong>Table 4.</strong> SNP permutation significance summary.</p><table class="article-table">
+<colgroup>
+<col style="width: 65%"/>
+<col style="width: 34%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Metric</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>SNPs tested (variable, capped)</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td>Count with permutation p &lt; 0.05</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>Minimum permutation p</td>
+<td>0.0047</td>
+</tr>
+<tr class="even">
+<td>Benjamini–Hochberg q &lt; 0.10</td>
+<td>0</td>
+</tr>
+</tbody>
+</table><p>The Top-50 heatmap shows cluster-aligned allele patterns and is
+presented as exploratory evidence that should be tested in larger
+case-control datasets, which is consistent with the small polygenic
+effects reported in dyslexia genome-wide association studies (Gialluisi
+et al. 2021; Doust et al. 2022; Figure 5). Supplementary Table S2 lists
+the top-50 SNPs.</p><p>Overall, the results show that unsupervised genetic subgroups are
+detectable within a cases-only cohort of dyslexia and that a workflow
+combining principal components preprocessing, UMAP with HDBSCAN,
+silhouette-guided selection, SNP-subsampling bootstrap, and
+permutation-calibrated variant ranking provides a transparent and
+reproducible way to convert small-sample data into testable hypotheses.
+The study is important because it demonstrates within-case heterogeneity
+using methods that explicitly model noise points and quantify stability;
+it is novel in applying this integrated workflow to dyslexia cases; and
+it is useful because it exports auditable outputs that can be replicated
+and extended in larger studies where statistical power for variant
+effects is higher (van der Maaten and Hinton 2008; McInnes, Healy, and
+Melville 2018; Campello, Moulavi, and Sander 2013; Campello et al. 2015;
+Phipson and Smyth 2010).</p><p class="article-figure"><img alt="Heatmap of genotypes for the top 50 SNPs." class="article-figure-img" loading="lazy" src="/tanglaw/assets/articles/volume-1/article-1/figure-5-top-50-snps-heatmap.png"/></p><p class="article-figcaption"><strong>Figure 5.</strong> Genotypes of Top-50 SNPs.</p><h2>4. Conclusion</h2><p>This study shows that unsupervised subgroup structure is detectable
+within a cases-only cohort of dyslexia. After rigorous quality control
+and dimensionality reduction, clustering identified four candidate
+genetic subgroups with two outliers. The four-cluster solution was
+supported by internal validity indices, a model-based baseline, and a
+bootstrap co-clustering analysis indicating moderate stability. Variant
+ranking showed enrichment of low permutation p-values among candidate
+variants, but none met false-discovery control in this small sample, so
+the ranked list should be viewed as hypothesis-generating rather than as
+biomarkers.</p><p>These results address the research question directly. A carefully
+parameterized manifold-plus-density workflow can reveal latent genetic
+subgroups within dyslexia cases, and permutation-calibrated testing
+provides a principled way to prioritize candidate variants tied to those
+subgroups while separating exploratory signal from confirmatory
+evidence. The work advances understanding by demonstrating that dyslexia
+cases in this cohort are not one genetic group but display detectable
+genetic heterogeneity. It also offers a transparent, reproducible
+small-sample template that makes uncertainty explicit, retains noise
+cases rather than forcing assignments, quantifies stability across SNP
+resamples, and exports auditable artifacts for independent scrutiny.</p><p>Several limitations merit emphasis. The cohort is small and
+cases-only, which limits statistical power for variant discovery and
+precludes case-control contrasts. Self-reported phenotype labels and
+heterogeneous genotyping may introduce measurement noise. Results are
+sensitive to hyperparameters and to graph construction in very small
+samples. We also observed substantial sample attrition after quality
+control and low agreement with a graph-based clustering baseline; both
+observations highlight the value of triangulating evidence with multiple
+metrics and stability checks.</p><p>Extending this work will require larger, harmonized datasets with
+matched controls and richer phenotyping. Future studies should evaluate
+robustness to alternative distance metrics and light linkage
+disequilibrium pruning, compare consensus across clustering methods,
+integrate functional annotation, and test whether subgroups correlate
+with reading measures, neurocognitive profiles, comorbidities, or
+response to evidence-based instruction. In practice, subgroup labels can
+be carried forward as predefined strata or model covariates in
+replication datasets to reduce dilution from etiologic heterogeneity and
+increase the chance of detecting true genetic signals. Applications
+include triaging candidate variants and subgroup hypotheses for targeted
+replication, guiding deeper phenotyping of specific subgroups, and
+adapting the workflow to other small disease cohorts where controls are
+scarce.</p><h3>Data Availability Statement</h3><p>The data can be accessed through openSNP.</p><h3>Funding</h3><p>This study received no funding.</p><h3>CRediT Authorship Contribution Statement</h3><p>P. N. Baltolore conceptualized the study design, performed data
+preprocessing and computational analysis, generated figures and tables,
+and drafted the Methodology, Results, and Discussion sections. P. Miego
+conducted the literature review, assisted in interpreting educational
+implications, contributed to the Introduction and Conclusion, and
+reviewed the presentation of results. M. Sardido oversaw the analytical
+framework, validated the clustering workflow and statistical procedures,
+reviewed outputs for accuracy, contributed to interpretation, and
+coordinated final revisions.</p><p><strong>Declaration of generative ai and ai-assisted technologies in
+the writing process</strong></p><p>The authors used AI only to enhance the readability and organization
+of the work, in accordance with ethical guidelines. In the conception
+phase, the authors used ChatGPT to assist in creating an outline of the
+Review of Related Literature (RRL). No AI or AI-assisted technologies
+were employed during the gathering of data. The analysis of data was
+conducted in R without the use of any AI tools. During the reporting
+stage, Grammarly was used solely to check for grammar and spelling
+errors in the manuscript. The authors are fully responsible for ensuring
+the accuracy and integrity of the manuscript.</p><h3>Declaration of Competing Interests</h3><p>The authors declare no conflicts of interest.</p><h3>Acknowledgments</h3><p>The authors gratefully acknowledge the openSNP community for publicly
+sharing de-identified genotype data that made this exploratory analysis
+possible. The authors also thank their mentor for guidance on
+dyslexia-related literature and methodological considerations during the
+early stages of the study.</p><h2>References</h2><ol class="reference-list"><li>Becht, Etienne, Leland McInnes, John Healy, C.-A. Dutertre, I. W. H.
+Kwok, Lai Guan Ng, Florent Ginhoux, and Evan W. Newell. 2019.
+“Dimensionality Reduction for Visualizing Single-Cell Data Using UMAP.”
+Nature Biotechnology 37 (1): 38–44.
+https://doi.org/10.1038/nbt.4314.</li><li>Blondel, Vincent D., Jean-Loup Guillaume, Renaud Lambiotte, and
+Etienne Lefebvre. 2008. “Fast Unfolding of Communities in Large
+Networks.” Journal of Statistical Mechanics: Theory and Experiment 2008
+(10): P10008. https://doi.org/10.1088/1742-5468/2008/10/P10008.</li><li>Caliński, T., and J. Harabasz. 1974. “A Dendrite Method for Cluster
+Analysis.” Communications in Statistics 3 (1): 1–27.
+https://doi.org/10.1080/03610927408827101.</li><li>Campello, Ricardo J. G. B., Davoud Moulavi, and Jörg Sander. 2013.
+“Density-Based Clustering Based on Hierarchical Density Estimates.” In
+Advances in Knowledge Discovery and Data Mining (PAKDD 2013), Lecture
+Notes in Computer Science, Vol. 7819, 160–72. Berlin: Springer.
+https://doi.org/10.1007/978-3-642-37456-2_14.</li><li>Campello, Ricardo J. G. B., Davoud Moulavi, Arthur Zimek, and Jörg
+Sander. 2015. “Hierarchical Density Estimates for Data Clustering,
+Visualization, and Outlier Detection.” ACM Transactions on Knowledge
+Discovery from Data 10 (1): 5:1–5:51.
+https://doi.org/10.1145/2733381.</li><li>Davies, D. L., and D. W. Bouldin. 1979. “A Cluster Separation
+Measure.” IEEE Transactions on Pattern Analysis and Machine Intelligence
+1 (2): 224–27. https://doi.org/10.1109/TPAMI.1979.4766909.</li><li>Diaz-Papkovich, Alex, Laurie Anderson-Trocmé, Chayce Ben-Eghan, and
+Simon Gravel. 2019. “UMAP Reveals Cryptic Population Structure and
+Phenotype Heterogeneity in Large Genomic Cohorts.” PLOS Genetics 15
+(11): e1008432. https://doi.org/10.1371/journal.pgen.1008432.</li><li>Doust, Chloe, et al. 2022. “Discovery of 42 Genome-Wide Significant
+Loci Associated with Dyslexia.” Nature Genetics 54: 1621–29.
+https://doi.org/10.1038/s41588-022-01192-y.</li><li>Gialluisi, Alessandra, T. F. M. Andlauer, N. Mirza-Schreiber, K.
+Moll, J. Becker, P. Hoffmann, K. U. Ludwig, D. Czamara, B. St Pourcain,
+F. Honbolygó, et al. 2021. “Genome-Wide Association Study Reveals New
+Insights into the Heritability and Genetic Correlates of Developmental
+Dyslexia.” Molecular Psychiatry 26 (8): 3004–17.
+https://doi.org/10.1038/s41380-020-00898-x.</li><li>Kobak, Dmitry, and Philipp Berens. 2019. “The Art of Using t-SNE for
+Single-Cell Transcriptomics.” Nature Communications 10: 5416.
+https://doi.org/10.1038/s41467-019-13056-x.</li><li>McInnes, Leland, John Healy, and James Melville. 2018. “UMAP: Uniform
+Manifold Approximation and Projection for Dimension Reduction.” arXiv
+preprint arXiv:1802.03426.</li><li>Phipson, Belinda, and Gordon K. Smyth. 2010. “Permutation P-Values
+Should Never Be Zero: Calculating Exact P-Values When Permutations Are
+Randomly Drawn.” Statistical Applications in Genetics and Molecular
+Biology 9 (1): Article 39. https://doi.org/10.2202/1544-6115.1585.</li><li>Price, Alkes L., Nick J. Patterson, Robert M. Plenge, Michael E.
+Weinblatt, Nancy A. Shadick, and David Reich. 2006. “Principal
+Components Analysis Corrects for Stratification in Genome-Wide
+Association Studies.” Nature Genetics 38 (8): 904–09.
+https://doi.org/10.1038/ng1847.</li><li>Schwarz, Gideon. 1978. “Estimating the Dimension of a Model.” Annals
+of Statistics 6 (2): 461–64. https://doi.org/10.1214/aos/1176344136.</li><li>van der Maaten, Laurens, and Geoffrey Hinton. 2008. “Visualizing Data
+Using t-SNE.” Journal of Machine Learning Research 9: 2579–2605.</li><li>Yang, Xiangyu, Lili Hong, Frank J. Elgar, and Ali Jalali. 2022.
+“Prevalence of Developmental Dyslexia in Primary School Children: A
+Systematic Review and Meta-Analysis.” International Journal of
+Environmental Research and Public Health 19 (4): 2151.
+https://doi.org/10.3390/ijerph19042151.</li></ol><h2>Appendices</h2><p><strong>Supplementary Table S1.</strong></p><table class="article-table">
+<colgroup>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 19%"/>
+<col style="width: 20%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>User</strong></th>
+<th><strong>Cluster</strong></th>
+<th><strong>Prob</strong></th>
+<th><strong>Stability</strong></th>
+<th><strong>Note</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>user7876</td>
+<td>0</td>
+<td>1.000</td>
+<td>0.349</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user808</td>
+<td>0</td>
+<td>1.000</td>
+<td>0.324</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user761</td>
+<td>0</td>
+<td>1.000</td>
+<td>0.301</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user4356</td>
+<td>0</td>
+<td>1.000</td>
+<td>0.299</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user2901</td>
+<td>1</td>
+<td>1.000</td>
+<td>0.399</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user5168</td>
+<td>1</td>
+<td>1.000</td>
+<td>0.354</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user1020</td>
+<td>1</td>
+<td>1.000</td>
+<td>0.317</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user6598</td>
+<td>1</td>
+<td>1.000</td>
+<td>0.316</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user500</td>
+<td>2</td>
+<td>1.000</td>
+<td>0.395</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user5917</td>
+<td>2</td>
+<td>1.000</td>
+<td>0.310</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user2291</td>
+<td>2</td>
+<td>1.000</td>
+<td>0.309</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user3942</td>
+<td>3</td>
+<td>1.000</td>
+<td>0.460</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user2293</td>
+<td>3</td>
+<td>1.000</td>
+<td>0.440</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user187</td>
+<td>3</td>
+<td>1.000</td>
+<td>0.430</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user1537</td>
+<td>3</td>
+<td>0.974</td>
+<td>0.315</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user7163</td>
+<td>3</td>
+<td>0.744</td>
+<td>0.476</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user1193</td>
+<td>3</td>
+<td>0.744</td>
+<td>0.398</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user2811</td>
+<td>3</td>
+<td>0.698</td>
+<td>0.357</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>user1706</td>
+<td>3</td>
+<td>0.693</td>
+<td>0.446</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>user915</td>
+<td>-1</td>
+<td>0.000</td>
+<td>0.339</td>
+<td>Noise (outlier)</td>
+</tr>
+<tr class="odd">
+<td>user4387</td>
+<td>-1</td>
+<td>0.000</td>
+<td>0.329</td>
+<td>Noise (outlier)</td>
+</tr>
+</tbody>
+</table><p><strong>Supplementary Table S2.</strong></p><table class="article-table">
+<colgroup>
+<col style="width: 4%"/>
+<col style="width: 16%"/>
+<col style="width: 3%"/>
+<col style="width: 16%"/>
+<col style="width: 3%"/>
+<col style="width: 16%"/>
+<col style="width: 3%"/>
+<col style="width: 16%"/>
+<col style="width: 3%"/>
+<col style="width: 16%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>#</strong></th>
+<th><strong>SNP ID</strong></th>
+<th><strong>#</strong></th>
+<th><strong>SNP ID</strong></th>
+<th><strong>#</strong></th>
+<th><strong>SNP ID</strong></th>
+<th><strong>#</strong></th>
+<th><strong>SNP ID</strong></th>
+<th><strong>#</strong></th>
+<th><strong>SNP ID</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>rs1415571</td>
+<td>11</td>
+<td>rs333027</td>
+<td>21</td>
+<td>rs10005703</td>
+<td>31</td>
+<td>rs1418635</td>
+<td>41</td>
+<td>rs1414125</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>rs7939857</td>
+<td>12</td>
+<td>rs1168510</td>
+<td>22</td>
+<td>rs2041874</td>
+<td>32</td>
+<td>rs1412671</td>
+<td>42</td>
+<td>rs10004753</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>rs6871603</td>
+<td>13</td>
+<td>rs1415678</td>
+<td>23</td>
+<td>rs11683501</td>
+<td>33</td>
+<td>rs1418903</td>
+<td>43</td>
+<td>rs2040802</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>rs687128</td>
+<td>14</td>
+<td>rs2043112</td>
+<td>24</td>
+<td>rs1000219</td>
+<td>34</td>
+<td>rs2041849</td>
+<td>44</td>
+<td>rs10001236</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>rs6879662</td>
+<td>15</td>
+<td>rs6869306</td>
+<td>25</td>
+<td>rs6872807</td>
+<td>35</td>
+<td>rs11678646</td>
+<td>45</td>
+<td>rs9993365</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>rs1421630</td>
+<td>16</td>
+<td>rs9994682</td>
+<td>26</td>
+<td>rs1411606</td>
+<td>36</td>
+<td>rs335771</td>
+<td>46</td>
+<td>rs341815</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>rs6868445</td>
+<td>17</td>
+<td>rs4751940</td>
+<td>27</td>
+<td>rs1168445</td>
+<td>37</td>
+<td>rs335776</td>
+<td>47</td>
+<td>rs335524</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>rs33780</td>
+<td>18</td>
+<td>rs11676011</td>
+<td>28</td>
+<td>rs1421018</td>
+<td>38</td>
+<td>rs10007635</td>
+<td>48</td>
+<td>rs6877607</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>rs7938175</td>
+<td>19</td>
+<td>rs335824</td>
+<td>29</td>
+<td>rs1412414</td>
+<td>39</td>
+<td>rs4751939</td>
+<td>49</td>
+<td>rs6876647</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>rs10003143</td>
+<td>20</td>
+<td>rs10005703</td>
+<td>30</td>
+<td>rs10006622</td>
+<td>40</td>
+<td>rs341260</td>
+<td>50</td>
+<td>rs1421480</td>
+</tr>
+</tbody>
+</table>
+
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><div class="footer-brand">Tanglaw: Philippine Journal of Student and Teacher Research</div><p>A journal initiative of Padada National High School</p><p>Hosted in the Philippines and open to schools nationwide.</p></div>
+      <div><h3>Policies</h3><ul class="footer-links"><li><a href="/tanglaw/ethics-policy/">Ethics Policy</a></li><li><a href="/tanglaw/peer-review-policy/">Peer Review Policy</a></li><li><a href="/tanglaw/open-access-policy/">Open Access Policy</a></li><li><a href="/tanglaw/privacy-statement/">Privacy Statement</a></li></ul></div>
+      <div><h3>Contact</h3><ul class="footer-links"><li><a href="mailto:samueljohn.parreno@deped.gov.ph">samueljohn.parreno@deped.gov.ph</a></li><li><a href="/tanglaw/submit/">Submit a Manuscript</a></li><li><a href="/tanglaw/contact/">Editorial Inquiries</a></li></ul></div>
+    </div>
+    <div class="container footer-note"><p>© <span id="year"></span> Tanglaw. Articles may be licensed under CC BY 4.0 unless otherwise stated.</p></div>
+    <script src="/tanglaw/assets/js/site.js"></script>
+  </footer>
+</body>
+</html>

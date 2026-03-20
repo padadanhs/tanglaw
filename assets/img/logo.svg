@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Tanglaw Journal Logo</title>
+  <desc id="desc">A blue academic emblem with laurel branches, an open book, a torch, and a pen nib.</desc>
+  <defs>
+    <linearGradient id="ring" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#4f7ca8"/>
+      <stop offset="100%" stop-color="#173b63"/>
+    </linearGradient>
+    <linearGradient id="book" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fbfe"/>
+      <stop offset="100%" stop-color="#dce9f6"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#86add0"/>
+      <stop offset="100%" stop-color="#2f5f8f"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="224" fill="#f6f9fc" stroke="url(#ring)" stroke-width="18"/>
+  <g fill="none" stroke="#6e89a3" stroke-width="8" stroke-linecap="round">
+    <path d="M132 333c-25-19-42-42-51-69 22 9 42 20 58 34"/>
+    <path d="M118 297c-16-20-27-42-31-68 19 11 36 25 49 40"/>
+    <path d="M114 258c-11-21-17-44-18-68 16 14 29 30 39 48"/>
+    <path d="M117 221c-4-22-3-46 4-69 13 17 22 36 28 56"/>
+    <path d="M380 333c25-19 42-42 51-69-22 9-42 20-58 34"/>
+    <path d="M394 297c16-20 27-42 31-68-19 11-36 25-49 40"/>
+    <path d="M398 258c11-21 17-44 18-68-16 14-29 30-39 48"/>
+    <path d="M395 221c4-22 3-46-4-69-13 17-22 36-28 56"/>
+  </g>
+  <g>
+    <path d="M156 333c38 0 66 13 100 38 34-25 62-38 100-38v47c-38 0-66 12-100 36-34-24-62-36-100-36z" fill="url(#book)" stroke="#2f5f8f" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M256 371v45" stroke="#2f5f8f" stroke-width="7" stroke-linecap="round"/>
+    <path d="M200 330v48" stroke="#8aa7c4" stroke-width="5" stroke-linecap="round"/>
+    <path d="M312 330v48" stroke="#8aa7c4" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g>
+    <path d="M256 134c20 24 27 51 20 83h-40c-7-32 0-59 20-83z" fill="#dde8f4" stroke="#2f5f8f" stroke-width="8"/>
+    <path d="M256 111c27 19 39 47 35 83-20-5-33-16-35-39-2 23-15 34-35 39-4-36 8-64 35-83z" fill="url(#flame)" stroke="#2f5f8f" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M240 216h32l14 86h-60z" fill="#f3f7fb" stroke="#2f5f8f" stroke-width="8" stroke-linejoin="round"/>
+  </g>
+  <g>
+    <path d="M256 202l23 30-23 58-23-58z" fill="#f7fbff" stroke="#173b63" stroke-width="8" stroke-linejoin="round"/>
+    <circle cx="256" cy="238" r="7" fill="#173b63"/>
+  </g>
+</svg>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Topological Characterization and Phylogenetic Analysis of SARS-CoV-2 Genomic RNA Using Chaos Geometry and Persistent Homology · Tanglaw: Philippine Journal of Student and Teacher Research</title>
+  <meta name="description" content="This study applies topological data analysis, chaos geometry, and persistent homology to examine structural relationships among SARS-CoV-2 variants of concern."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="canonical" href="https://padadanhs.github.io/tanglaw/articles/volume-1/sars-cov-2-topological-characterization/"/>
+  <link href="/tanglaw/assets/img/logo.png" rel="icon" type="image/png"/>
+  <link href="/tanglaw/assets/css/styles.css" rel="stylesheet"/>
+
+  <meta name="citation_title" content="Topological Characterization and Phylogenetic Analysis of SARS-CoV-2 Genomic RNA Using Chaos Geometry and Persistent Homology"/>
+  <meta name="citation_author" content="Jun Nathaniel G. Ratilla"/>
+  <meta name="citation_author_institution" content="Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines"/>
+  <meta name="citation_author" content="Perie T. Miego"/>
+  <meta name="citation_author_institution" content="Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines"/>
+  <meta name="citation_author" content="Nilmae Love P. Ngujo"/>
+  <meta name="citation_author_institution" content="Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines"/>
+  <meta name="citation_journal_title" content="Tanglaw: Philippine Journal of Student and Teacher Research"/>
+  <meta name="citation_publication_date" content="2026/03/24"/>
+  <meta name="citation_online_date" content="2026/03/24"/>
+  <meta name="citation_volume" content="1"/>
+  <meta name="citation_issue" content="1"/>
+  <meta name="citation_language" content="en"/>
+  <meta name="citation_keywords" content="SARS-CoV-2; persistent homology; chaos geometry; phylogenetic analysis; variants of concern"/>
+  <meta name="citation_abstract_html_url" content="https://padadanhs.github.io/tanglaw/articles/volume-1/sars-cov-2-topological-characterization/"/>
+  <meta name="citation_fulltext_html_url" content="https://padadanhs.github.io/tanglaw/articles/volume-1/sars-cov-2-topological-characterization/"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Topological Characterization and Phylogenetic Analysis of SARS-CoV-2 Genomic RNA Using Chaos Geometry and Persistent Homology",
+    "name": "Topological Characterization and Phylogenetic Analysis of SARS-CoV-2 Genomic RNA Using Chaos Geometry and Persistent Homology",
+    "description": "This study applies topological data analysis, chaos geometry, and persistent homology to examine structural relationships among SARS-CoV-2 variants of concern.",
+    "inLanguage": "en",
+    "datePublished": "2026-03-24",
+    "dateAccepted": "2025-08-01",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://padadanhs.github.io/tanglaw/articles/volume-1/sars-cov-2-topological-characterization/",
+    "author": [
+      {"@type": "Person", "name": "Jun Nathaniel G. Ratilla", "affiliation": {"@type": "Organization", "name": "Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines"}},
+      {"@type": "Person", "name": "Perie T. Miego", "affiliation": {"@type": "Organization", "name": "Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines"}},
+      {"@type": "Person", "name": "Nilmae Love P. Ngujo", "affiliation": {"@type": "Organization", "name": "Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines"}}
+    ],
+    "isPartOf": {
+      "@type": "PublicationIssue",
+      "issueNumber": "1",
+      "isPartOf": {
+        "@type": "PublicationVolume",
+        "volumeNumber": "1",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Tanglaw: Philippine Journal of Student and Teacher Research"
+        }
+      }
+    },
+    "keywords": ["SARS-CoV-2", "persistent homology", "chaos geometry", "phylogenetic analysis", "variants of concern"]
+  }
+  </script>
+
+  <style>
+    .journal-article .hero__kicker { margin-bottom: .55rem; }
+    .journal-article-title {
+      font-size: clamp(1.9rem, 3.2vw, 2.45rem);
+      line-height: 1.15;
+      margin: 0 0 .7rem;
+      color: #11345d;
+    }
+    .article-top-card {
+      border-top: 5px solid #173b63;
+      padding-top: 1.25rem;
+    }
+    .article-byline {
+      display: grid;
+      gap: .7rem;
+      margin: .95rem 0 1rem;
+    }
+    .article-authors {
+      font-size: 1.06rem;
+      font-weight: 700;
+      color: #173b63;
+      line-height: 1.45;
+    }
+    .article-affiliation,
+    .article-correspondence {
+      color: #4a5e73;
+      margin: 0;
+    }
+    .article-meta-panel {
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border: 1px solid #d9e2ef;
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      margin-top: .6rem;
+    }
+    .article-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .9rem 1.2rem;
+    }
+    .article-meta-grid p { margin: 0; }
+    .article-meta-grid strong { color: #153a63; }
+    .article-abstract p:last-child,
+    .article-content p:last-child,
+    .article-notes p:last-child { margin-bottom: 0; }
+    .article-content {
+      line-height: 1.75;
+      font-size: 1.01rem;
+    }
+    .article-content h2 {
+      margin: 2rem 0 1rem;
+      font-size: 1.55rem;
+      line-height: 1.25;
+      color: #11345d;
+      border-bottom: 1px solid #d9e2ef;
+      padding-bottom: .35rem;
+    }
+    .article-content h3 {
+      margin: 1.5rem 0 .75rem;
+      font-size: 1.14rem;
+      line-height: 1.35;
+      color: #1f4d86;
+    }
+    .article-content p { margin: 0 0 1rem; }
+    .article-content .article-figure {
+      margin: 1.6rem auto .55rem;
+      text-align: center;
+    }
+    .article-content .article-figure img,
+    .article-content .article-figure-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #d9e2ef;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(17,52,93,.08);
+      margin-inline: auto;
+    }
+    .article-content .article-figure--panel img {
+      width: min(920px, 100%);
+    }
+    .article-content .article-figcaption,
+    .article-content .article-table-caption {
+      font-size: 0.96rem;
+      line-height: 1.55;
+      color: #3f5268;
+      margin: .55rem 0 1.1rem;
+      text-align: center;
+    }
+    .article-content .article-table-caption {
+      text-align: left;
+      margin-top: 1.4rem;
+      margin-bottom: .55rem;
+      color: #31445f;
+    }
+    .article-content .article-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 0 0 1.5rem;
+      font-size: 0.96rem;
+      background: #fff;
+      border: 1px solid #d9e2ef;
+      border-radius: 14px;
+      overflow: hidden;
+      display: table;
+    }
+    .article-content .article-table th,
+    .article-content .article-table td {
+      border-right: 1px solid #d9e2ef;
+      border-bottom: 1px solid #d9e2ef;
+      padding: 0.72rem 0.88rem;
+      vertical-align: top;
+      text-align: left;
+    }
+    .article-content .article-table tr:last-child td { border-bottom: 0; }
+    .article-content .article-table th:last-child,
+    .article-content .article-table td:last-child { border-right: 0; }
+    .article-content .article-table th {
+      background: #f4f8fc;
+      color: #12355e;
+      font-weight: 700;
+    }
+    .article-content .reference-list,
+    .article-content ol.reference-list {
+      padding-left: 1.25rem;
+      line-height: 1.7;
+    }
+    .article-content .reference-list li { margin-bottom: .8rem; }
+    .equation-block {
+      margin: 1rem 0 1.25rem;
+      padding: .95rem 1rem;
+      border-left: 4px solid #2f5f8f;
+      background: #f7fbff;
+      border-radius: 0 14px 14px 0;
+      overflow-x: auto;
+      font-family: "Times New Roman", Georgia, serif;
+    }
+    .equation-block code,
+    .equation-block pre {
+      margin: 0;
+      white-space: pre-wrap;
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 1rem;
+    }
+    .article-notes p {
+      margin: 0 0 .95rem;
+    }
+    .article-notes strong {
+      color: #153a63;
+    }
+    @media (max-width: 700px) {
+      .journal-article-title { font-size: 1.85rem; }
+      .article-meta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/tanglaw/">
+        <img alt="Tanglaw logo" class="brand__logo" src="/tanglaw/assets/img/logo.svg"/>
+        <div class="brand__text">
+          <span class="brand__title">Tanglaw: Philippine Journal of Student and Teacher Research</span>
+          <span class="brand__subtitle">Open Access • Peer Reviewed • Rolling Publication</span>
+        </div>
+      </a>
+      <input aria-label="Toggle navigation" class="nav-toggle" id="nav-toggle" type="checkbox"/>
+      <label aria-hidden="true" class="nav-burger" for="nav-toggle"><span></span></label>
+      <nav aria-label="Primary" class="site-nav">
+        <ul>
+          <li><a class="nav__link" href="/tanglaw/">Home</a></li>
+          <li><a class="nav__link" href="/tanglaw/about/">About</a></li>
+          <li><a class="nav__link" href="/tanglaw/aims-and-scope/">Aims &amp; Scope</a></li>
+          <li><a aria-current="page" class="nav__link" href="/tanglaw/articles/">Articles</a></li>
+          <li><a class="nav__link" href="/tanglaw/editorial-board/">Editorial Board</a></li>
+          <li><a class="nav__link" href="/tanglaw/for-authors/">For Authors</a></li>
+          <li><a class="nav__link nav__link--button" href="/tanglaw/submit/">Submit</a></li>
+          <li><a class="nav__link" href="/tanglaw/archive/">Archive</a></li>
+          <li><a class="nav__link" href="/tanglaw/news/">News</a></li>
+          <li><a class="nav__link" href="/tanglaw/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page-shell journal-article" id="main">
+    <article class="stack">
+      <div class="breadcrumb"><a href="/tanglaw/">Home</a> / <a href="/tanglaw/articles/">Articles</a> / <a href="/tanglaw/archive/volume-1/">Volume 1</a> / <span>Volume 1</span></div>
+
+      <section class="card article-top-card">
+        <p class="hero__kicker">Research Article</p>
+        <h2 class="journal-article-title" style="font-size:2rem;">Topological Characterization and Phylogenetic Analysis of SARS-CoV-2 Genomic RNA Using Chaos Geometry and Persistent Homology</h2>
+        <div class="article-byline">
+          <div class="article-authors">Jun Nathaniel G. Ratilla, Perie T. Miego, Nilmae Love P. Ngujo</div>
+          <p class="article-affiliation"><strong>Affiliation:</strong> Senior High School Department, Padada National High School, Padada, Davao del Sur, 8007, Philippines</p>
+          <p class="article-correspondence"><strong>Corresponding author:</strong> <a href="mailto:ratillajunnathaniel@gmail.com">ratillajunnathaniel@gmail.com</a></p>
+        </div>
+        <div class="meta"><span>Volume 1</span><span>Science and Technology</span><span>Published March 24, 2026</span></div>
+        <div class="article-meta-panel">
+          <div class="article-meta-grid">
+            <p><strong>Article history:</strong> Received May 13, 2025; Revised July 24, 2025; Accepted August 1, 2025</p>
+            <p><strong>Volume and issue:</strong> Volume 1, Issue 1</p>
+            <p><strong>Article number:</strong> 0002</p>
+            <p><strong>Keywords:</strong> SARS-CoV-2, persistent homology, chaos geometry, phylogenetic analysis, variants of concern</p>
+            <p><strong>License:</strong> CC BY-SA 4.0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card article-abstract">
+        <h2>Abstract</h2>
+        
+<p>The SARS-CoV-2 pandemic produced multiple Variants of Concern that continue to complicate surveillance and control. While sequence-based pipelines identify mutations with precision, they may miss mesoscopic structural patterns along the genome. This study applies topological data analysis to evaluate whether topology-derived features add complementary information for distinguishing variants. Complete RNA sequences for Alpha, Beta, Gamma, Delta, and Omicron were retrieved from GenBank and embedded as four-dimensional point clouds using a chaos-geometry mapping. Persistent homology was computed on these point clouds to obtain persistence diagrams that summarize zero- and one-dimensional topological features, and pairwise Wasserstein distances between diagrams were used to quantify structural similarity. A topology-informed phylogeny derived from the distance matrix was compared with a tree produced by a standard alignment method. The topology-based analysis grouped B.1.351 (Beta) with B.1.617.2 (Delta), indicating substantial structural similarity, and suggested that B.1.1.7 (Alpha) diverged earliest; several branching orders differed from the alignment-based tree, implying that topology captures geometric and correlation structure not reflected by character-wise alignments. These findings show that topological data analysis provides a complementary lens on genomic organization, with potential to inform vaccine design, guide variant-specific diagnostics, and enhance genomic surveillance when integrated with conventional sequence analytics.</p>
+
+      </section>
+
+      <section class="card">
+        <h2>Suggested citation</h2>
+        
+<p>Ratilla, J. N. G., Miego, P. T., &amp; Ngujo, N. L. P. (2026). <em>Topological Characterization and Phylogenetic Analysis of SARS-CoV-2 Genomic RNA Using Chaos Geometry and Persistent Homology</em>. <em>Tanglaw: Philippine Journal of Student and Teacher Research</em>, 1(1), Article 0002.</p>
+
+      </section>
+
+      <section class="card article-content">
+        
+<h2>1. Introduction</h2>
+<p>Recent advancements in methods for analyzing genomic sequence similarities have significantly enhanced our understanding of genetic information (Pereira et al., 2020). These methods are categorized into graphical and numeric representations. Graphical methods map each nucleotide base (A, C, G, T) to a point in Euclidean space R<sup>n</sup>, where <em>n</em> ranges from 2 to 5, creating a collection of points representing the genomic sequence (Hoang et al., 2016). Techniques like signal processing use measures such as Euclidean distances or correlation angles to compare sequence similarities (Akhtar et al., 2008). Numeric representations convert genomic sequences into numeric sequences, facilitating various comparison techniques.</p>
+<p>Graphical methods face challenges such as geometric inaccuracies and poor performance with varying sequence lengths (Brzinsky-Fay, 2014). To address these, this paper introduces a method combining graphical representation with algebraic topology tools, specifically persistent homology (PH). The method transforms each genomic sequence into a collection of points in Euclidean space, viewed as point clouds. Persistent homology extracts topological signatures, represented by persistence diagrams that encode features such as the number of connected components or one-dimensional holes. The Wasserstein distance between persistence diagrams reflects similarities among genomic sequences.</p>
+<p>Topological data analysis (TDA) offers powerful tools for understanding the shape and structure of data (Wasserman, 2018; Edelsbrunner &amp; Harer, 2022). Persistent homology can uncover hidden structural relationships by identifying topological features such as loops and voids in genomic data. This approach allows the identification of variants with similar structural characteristics, potentially offering insights into transmissibility, immune escape, and other functional traits beyond genetic mutations. Persistent homology captures topological features across multiple scales, making it useful for analyzing complex biological data. It has been successfully applied to various biological and non-biological datasets, demonstrating its versatility and effectiveness (Wei, 2017; Meng et al., 2020; Aggarwal &amp; Periwal, 2023; De Lara, 2023; Parreño &amp; Anter, 2024).</p>
+<p>This study applies these methodologies to analyze the positive-sense single-stranded genomic RNA (ssRNA) of SARS-CoV-2, focusing specifically on the Variants of Concern (VOC) as defined by the World Health Organization (WHO) (Parums, 2021; Gowrisankar et al., 2022) due to their increased transmissibility or severity. The dataset used in this study was retrieved from the NCBI GenBank, ensuring a comprehensive and authoritative collection of SARS-CoV-2 VOC sequences. Positive-sense ssRNA viruses possess genomes that serve as mRNA for protein synthesis, making their analysis crucial for understanding viral replication and pathogenicity (Poltronieri et al., 2015). Given the global impact of COVID-19, advanced methods for analyzing SARS-CoV-2 genomic sequences are essential for developing effective diagnostics, treatments, and vaccines.</p>
+<p>This paper presents a topological characterization of SARS-CoV-2 genomic RNA sequences using chaos geometry in four-dimensional space and persistent homology. Turning each RNA sequence into a collection of points in four-dimensional Euclidean space creates point clouds that capture topological properties. Persistent homology is applied to these point clouds to obtain persistence diagrams encoding topological signatures. The Wasserstein distance between persistence diagrams measures genomic similarity, allowing the construction of phylogenetic trees and comparison of SARS-CoV-2 sequences effectively.</p>
+<p>This study addresses limitations in existing methods and provides a comprehensive framework for genomic analysis. By integrating chaos geometry and persistent homology, the study offers a perspective on the topological characteristics of SARS-CoV-2 RNA sequences and contributes to ongoing efforts to understand and combat COVID-19.</p>
+
+<h2>2. Method</h2>
+<h3>2.1 Dataset</h3>
+<p>This study analyzes SARS-CoV-2 Variants of Concern (VOCs), identified by the World Health Organization due to their increased transmissibility, severity, or potential for immune escape. The dataset consists of complete genomic sequences of these variants retrieved from the NCBI GenBank database.</p>
+<p>Although SARS-CoV-2 has a positive-sense single-stranded RNA genome, the sequences used in this study are represented using the nucleotide bases A (adenine), C (cytosine), G (guanine), and T (thymine), which correspond to DNA sequences. For many viral studies, RNA sequences are reverse-transcribed into complementary DNA (cDNA) before being sequenced and stored in databases like NCBI. The reverse transcription process converts RNA nucleotides into their DNA counterparts, where uracil in RNA is replaced by thymine in the resulting cDNA. This cDNA is then used for storage, analysis, and alignment purposes, which is why the sequences in this study are represented using ACGT (Wu et al., 2020).</p>
+<p>The variants examined in this study include Alpha (B.1.1.7), Beta (B.1.351), Gamma (P.1), Delta (B.1.617.2), and Omicron (B.1.1.529). The specific accession numbers are Alpha [OV054768], Beta [OR278055], Gamma [OR578388], Delta [OK091006], and Omicron [OQ905474].</p>
+
+<h3>2.2 Chaos 4-Dimensional Representation</h3>
+<p>This paper utilized a four-dimensional chaotic system to convert an RNA sequence into a finite set of points within R<sup>4</sup>, creating a four-dimensional representation of the sequence (Feldman, 2012). Let <em>α</em> represent an RNA sequence of length <em>n</em>, written as β<sub>1</sub>, β<sub>2</sub>, …, β<sub>n</sub>, where β<sub>i</sub> refers to one of the four nucleotide bases A, C, G, or T.</p>
+<div class="equation-block"><pre>aᵢ = 1 if βᵢ is nucleotide A
+aᵢ = 2 if βᵢ is nucleotide C
+aᵢ = 3 if βᵢ is nucleotide G
+aᵢ = 4 if βᵢ is nucleotide T</pre></div>
+<p>Next, the standard unit vectors in R<sup>4</sup> are defined as e<sub>1</sub> = (1,0,0,0), e<sub>2</sub> = (0,1,0,0), e<sub>3</sub> = (0,0,1,0), and e<sub>4</sub> = (0,0,0,1). Using this four-dimensional chaotic approach, a finite set of points X<sub>α</sub> in R<sup>4</sup> is generated, composed of points b<sub>1</sub>, …, b<sub>n</sub> as follows:</p>
+<div class="equation-block"><pre>b₁ = eₐ₁
+For each 2 ≤ k ≤ n,
+bₖ = 1/2 · bₖ₋₁ + 1/2 · eₐₖ</pre></div>
+<p>This mapping, which transforms each RNA sequence α = β<sub>1</sub>β<sub>2</sub>…β<sub>n</sub> into a finite set of points X<sub>α</sub> in R<sup>4</sup>, is referred to as the Chaos 4-Dimensional Representation (C4DR).</p>
+
+<h3>2.3 Point Clouds and Simplices</h3>
+<p>A point cloud is a set of data points in space. In this study, each RNA sequence is represented as a point cloud in R<sup>4</sup>, using the C4DR, which transforms the sequence into points that capture the sequence’s geometric structure.</p>
+<p>Once a point cloud is generated, the next step is to build a simplicial complex. A simplicial complex is a mathematical structure comprising vertices, edges, triangles, and higher-dimensional analogs called simplices. Each simplex is a set of points that form a convex hull (Virk, 2022). For instance, a 0-simplex is a point; a 1-simplex is an edge connecting two points; a 2-simplex is a triangle formed by three points; and a 3-simplex is a tetrahedron.</p>
+<figure class="article-figure"><img src="/tanglaw/assets/articles/volume-1/article-2/figure-1-simplices-example.png" alt="Examples of simplices." loading="lazy"/></figure>
+<p class="article-figcaption"><strong>Figure 1.</strong> Examples of simplices (Riñon &amp; Sambayan, 2024).</p>
+
+<h3>2.4 Filtration and Rips Complexes</h3>
+<p>Filtration is a process of gradually building a simplicial complex by varying a parameter ε that controls how points in the point cloud are connected. As ε increases, more points connect and higher-dimensional simplices are formed (Munkres, 1975). This gradual construction reveals important topological features of the data.</p>
+<p>In this study, Vietoris-Rips complexes are used, where simplices are formed whenever points are close enough to each other, that is, when their pairwise distance is less than or equal to ε. For each value of ε, a new simplicial complex is created, and this process is repeated over a range of ε values (Zomorodian, 2010).</p>
+<figure class="article-figure"><img src="/tanglaw/assets/articles/volume-1/article-2/figure-2-filtration-rips-complex.png" alt="Filtration process forming simplices." loading="lazy"/></figure>
+<p class="article-figcaption"><strong>Figure 2.</strong> Forming simplices using filtration.</p>
+
+<h3>2.5 Persistent Homology</h3>
+<p>Persistent homology quantifies the persistence of topological features such as connected components, loops, and voids as the filtration progresses. It tracks when topological features appear (birth) and disappear (death) as ε increases.</p>
+<p>To compute the persistent homology of a dataset, the study examines how features evolve through filtration (Virk, 2022). Zero-dimensional homology (H<sub>0</sub>) measures connected components, one-dimensional homology (H<sub>1</sub>) captures loops or holes, and two-dimensional homology (H<sub>2</sub>) detects enclosed voids or cavities. Each topological feature can be represented by its birth and death times in the filtration, and these are summarized in a persistence diagram.</p>
+
+<h3>2.6 Persistence Diagram</h3>
+<p>A persistence diagram is a plot that records the birth and death of each topological feature in a filtration. Each point on the diagram corresponds to a feature, with the x-coordinate representing the birth time and the y-coordinate representing the death time. The significance of a topological feature is indicated by its distance from the diagonal line in the persistence diagram; the farther a point is from the diagonal, the more critical the feature. Features that last longer are deemed significant, whereas those that appear and vanish quickly are typically considered noise (Edelsbrunner &amp; Harer, 2022).</p>
+<figure class="article-figure"><img src="/tanglaw/assets/articles/volume-1/article-2/figure-3-persistence-diagram-example.jpg" alt="Persistence diagram example." loading="lazy"/></figure>
+<p class="article-figcaption"><strong>Figure 3.</strong> Persistence diagram example.</p>
+
+<h3>2.7 Wasserstein Distance</h3>
+<p>The Wasserstein distance compares the topological features of two point clouds representing two RNA sequences. This metric measures the dissimilarity between their persistence diagrams by calculating the minimum cost required to match the points in one diagram with those in the other. This study uses the first Wasserstein distance W<sub>1</sub> for the persistence diagrams of the one-dimensional homology H<sub>1</sub>, which captures loops and cycles in the data.</p>
+<div class="equation-block"><pre>W₁(PD₁(X), PD₂(Y)) = inf δ:PD₁(X)→PD₂(Y)  Σ ‖(b, d) − δ(b, d)‖∞
+                                           (b,d)∈PD₁(X)</pre></div>
+<p>In other words, the Wasserstein distance is a way to compare two persistence diagrams by determining how much effort or cost it would take to match the features from one diagram to the other. The smaller the Wasserstein distance, the more similar the two RNA sequences are in their topological features.</p>
+
+<h3>2.8 Proposed Method</h3>
+<p>This research adapted the steps for reconstructing a phylogenetic tree of RNA sequences from Nguyen et al. (2022). The method is divided into three phases.</p>
+<p><strong>Phase I — Data Collection and Preparation.</strong> Begin with <em>n</em> RNA sequences labeled α<sub>1</sub>, α<sub>2</sub>, …, α<sub>n</sub>. The RNA sequences represent the Variants of Concern retrieved from the NCBI GenBank database.</p>
+<p><strong>Phase II — Topological Representation and Feature Extraction.</strong> For each RNA sequence α<sub>i</sub>, apply the C4DR method to map it into a point cloud X<sub>αi</sub> in R<sup>4</sup>. Compute the first persistence diagram PD<sub>1</sub>(X<sub>αi</sub>) for each sequence using the TDA package in R. This step captures the topological features of the sequence, such as loops and cycles, in four-dimensional space.</p>
+<p><strong>Phase III — Phylogenetic Tree Construction and Comparison.</strong> Calculate the Wasserstein distance W<sub>1</sub> between the persistence diagrams of each pair of sequences, creating a distance matrix of size <em>n</em> × <em>n</em>, where each entry reflects the topological similarity between two sequences. Use the UPGMA algorithm in R to build a phylogenetic tree from the distance matrix, clustering RNA sequences based on their topological features. Finally, compare the persistent-homology-based phylogenetic tree with a Clustal Omega alignment-based phylogenetic tree.</p>
+
+<h3>2.9 Computational Environment and Libraries</h3>
+<p>The analysis was conducted in the Posit Cloud environment using R version 4.4.1. The computational resources allocated for the study included 32 GB of RAM and an 8 GB CPU. The following R libraries were used in the analysis: <em>TDA</em> for topological data analysis and computation of persistent homology, <em>phangorn</em> for phylogenetic analysis and tree construction, <em>stats</em> for standard statistical analysis, <em>ape</em> for handling phylogenetic trees, and <em>msa</em> for multiple sequence alignment.</p>
+
+<h2>3. Results and Discussion</h2>
+<p>Persistent homology was used to compute the persistence diagrams for each SARS-CoV-2 variant, which allowed the study to capture their topological features. Figure 4 shows the persistence diagrams for B.1.351 (Beta) and B.1.617.2 (Delta). The diagrams reveal similar distributions of topological features, particularly in the one-dimensional homology H<sub>1</sub>, which reflects loops and cycles in the data. The Wasserstein distance between these two variants was small, indicating a strong topological similarity between B.1.351 and B.1.617.2.</p>
+<p>The topological similarities observed between the Beta and Delta variants align with shared mutations known to enhance immune escape and transmission (Zhou et al., 2021; Liu et al., 2021). Both variants exhibit mutations in the spike protein that alter its structure, reducing antibody binding and allowing immune evasion (Garcia-Beltran et al., 2021). For instance, the E484K mutation in Beta and the L452R mutation in Delta both result in structural adaptations that confer immune escape advantages (Wang et al., 2021; Motozono et al., 2021). In persistent homology, these structural similarities are reflected by prominent features in the one-dimensional homology, suggesting loops that correspond to functionally significant genome regions. Thus, topological analysis captures the structural impacts of these mutations, revealing functional similarities even when precise genetic sequences differ.</p>
+<figure class="article-figure article-figure--panel"><img src="/tanglaw/assets/articles/volume-1/article-2/figure-4-persistence-diagrams-beta-delta.png" alt="Persistence diagrams of Beta and Delta variants." loading="lazy"/></figure>
+<p class="article-figcaption"><strong>Figure 4.</strong> Persistence diagrams of SARS-CoV-2 genomes with the least Wasserstein distance: (a) B.1.351 and (b) B.1.617.2.</p>
+
+<p>Pairwise Wasserstein distances between the persistence diagrams were then used to construct a phylogenetic tree (Figure 5). The persistent-homology-based tree shows that B.1.1.7 (Alpha) was the first to diverge, followed by B.1.1.529 (Omicron). P.1 (Gamma), B.1.351 (Beta), and B.1.617.2 (Delta) clustered closely, with B.1.351 and B.1.617.2 sharing the same node, reflecting their topological similarity.</p>
+<p>This placement of B.1.1.7 as the first to diverge aligns with epidemiological and genomic data, indicating that Alpha was among the earliest Variants of Concern to emerge during the pandemic. Studies have shown that the Alpha variant, first identified in the United Kingdom in September 2020, accumulated many mutations distinguishing it from the ancestral strain, suggesting an early divergence (Andrew, 2020; Volz et al., 2021). The early emergence and rapid spread of Alpha support the topological findings, confirming that Alpha was the first among the studied VOCs to diverge.</p>
+<figure class="article-figure"><img src="/tanglaw/assets/articles/volume-1/article-2/figure-5-phylogenetic-tree-persistent-homology.png" alt="Phylogenetic tree based on persistent homology." loading="lazy"/></figure>
+<p class="article-figcaption"><strong>Figure 5.</strong> Phylogenetic tree of SARS-CoV-2 based on persistent homology.</p>
+
+<p>To validate the topological approach, the persistent-homology-based phylogenetic tree was compared with a phylogenetic tree generated using Clustal Omega for multiple sequence alignment (Figure 6). Clustal Omega is widely regarded as a standard tool for phylogenetic analysis because it efficiently generates accurate multiple sequence alignments, particularly when working with large datasets (Sievers &amp; Higgins, 2018). The Clustal Omega tree was largely consistent with the results, particularly in clustering P.1 (Gamma), B.1.351 (Beta), and B.1.617.2 (Delta). However, a key difference was that Clustal Omega placed B.1.351 as the first to diverge, with B.1.1.7 (Alpha) and B.1.617.2 (Delta) clustering under the same node. In contrast, the persistent-homology-based tree had B.1.1.7 diverging first, while B.1.351 and B.1.617.2 were grouped.</p>
+<p>These findings suggest that the topological method may capture structural relationships that differ from those inferred by sequence alignment methods. The placement of Alpha as the first to diverge in the persistent-homology-based tree is supported by its early detection and spread, reinforcing the validity of the approach (Davies et al., 2021).</p>
+<figure class="article-figure"><img src="/tanglaw/assets/articles/volume-1/article-2/figure-6-phylogenetic-tree-clustal-omega.png" alt="Phylogenetic tree based on Clustal Omega." loading="lazy"/></figure>
+<p class="article-figcaption"><strong>Figure 6.</strong> Phylogenetic tree of SARS-CoV-2 based on Clustal Omega.</p>
+
+<p>Utilizing chaos geometry and persistent homology, the topological method effectively captures structural relationships between SARS-CoV-2 variants. Nguyen et al. (2022) demonstrated that topological methods, such as persistent homology and Wasserstein distances, can reveal structural similarities in genomic sequences. In this study, the close clustering of B.1.351 and B.1.617.2 in the phylogenetic tree, supported by similar persistence diagrams and small Wasserstein distances, reflects significant topological similarities between these variants. This is consistent with findings from studies highlighting similarities in their spike protein mutations, which contribute to increased transmissibility and immune evasion (Tegally et al., 2021; Harvey et al., 2021; Chaudhuri et al., 2024). As Zomorodian (2010) and Lum et al. (2013) explain, topological analysis primarily focuses on the geometric properties of data rather than tracking mutation history. In this context, the structural similarities identified in this study suggest shared functional characteristics between the variants rather than indicating a direct evolutionary lineage.</p>
+<p>The advantage of the topological approach lies in its ability to capture broader structural patterns that traditional sequence alignment methods might miss. While Clustal Omega placed B.1.351 as the first to diverge and clustered B.1.1.7 with B.1.617.2, the persistent-homology-based method placed B.1.1.7 as the first to diverge and highlighted a close relationship between Beta and Delta. Epidemiological findings further support this difference. A model-inference system analyzing pandemic dynamics in South Africa found that both Beta and Delta variants shared functional similarities, particularly regarding immune erosion and transmissibility. Beta eroded immunity among 63.4% of previously infected individuals, while Delta eroded 24.5%, and Delta was 47.5% more transmissible than the ancestral strain (Yang et al., 2022). These findings align with the structural similarities identified in the topological analysis, suggesting that both approaches capture critical functional aspects of the virus that are not easily detected through traditional sequence-based methods.</p>
+<p>Persistent homology provides an intuitive and quantitative way to analyze the structural complexity of genomic sequences. By tracking topological features such as loops and voids, it becomes possible to compare genomic structures across variants. In the analysis, the structural similarities between Beta and Delta are supported by shared topological features, which align with studies reporting similar functional behaviors, such as immune escape (Planas et al., 2021; Afroze et al., 2024). These similarities could reflect important functional aspects of the virus that affect its behavior and spread, though they do not directly indicate evolutionary relationships.</p>
+<p>While the method successfully captures these structural relationships, discrepancies between topological and sequence-based approaches indicate that further refinement may be necessary. The difference in branching orders between the persistent-homology-based tree and the Clustal Omega tree highlights the distinct relationships each approach is designed to capture. Combining topological and sequence-based approaches could provide a more holistic view of variant relationships by bringing together structural similarities and genetic mutations.</p>
+
+<h2>4. Conclusion</h2>
+<p>This study demonstrates the effectiveness of topological methods, such as chaos geometry and persistent homology, in uncovering structural relationships between SARS-CoV-2 variants. Unlike traditional sequence-based approaches, which focus solely on genetic mutations, the method offers deeper insights by capturing and quantifying topological features. By focusing on structural similarities, this approach provides a way to classify viral variants, with implications for public health and scientific research. One key finding from the study is the close topological relationship between B.1.351 (Beta) and B.1.617.2 (Delta), supported by their shared spike protein mutations, which are known to influence transmissibility and immune escape. These similarities demonstrate the value of topological analysis in identifying structural patterns that may not be evident through traditional sequence alignment methods.</p>
+
+<h3>Data Availability Statement</h3>
+<p>The dataset consists of complete genomic sequences of these variants retrieved from the NCBI GenBank database. The accession numbers are Alpha (B.1.1.7) [OV054768], Beta (B.1.351) [OR278055], Gamma (P.1) [OR578388], Delta (B.1.617.2) [OK091006], and Omicron (B.1.1.529) [OQ905474].</p>
+
+<h3>Ethics Statement</h3>
+<p>This research only involved the computational analysis of genomic data from public databases; no personal or sensitive data were handled.</p>
+
+<h3>Funding</h3>
+<p>The study received no funding.</p>
+
+<h3>CRediT Authorship Contribution Statement</h3>
+<p>J. N. G. Ratilla led conceptualization and project administration, co-designed the methodology, performed the formal analysis, produced the visualizations, and wrote the original draft. P. T. Miego co-designed the methodology, implemented the software and ran experiments, performed validation, contributed to formal analysis, and carried out writing, review, and editing. N. L. P. Ngujo led data curation, performed validation, assisted with investigation and visualization, and contributed to writing, review, and editing. All authors contributed to investigation, secured resources for GenBank retrieval and the computing environment, jointly interpreted the results, and approved the final manuscript.</p>
+
+<h3>Declaration of Generative AI and AI-Assisted Technologies in the Writing Process</h3>
+<p>During manuscript preparation, the authors used ChatGPT-4o for language editing. The authors reviewed and revised the text and accept full responsibility for the content. No generative AI system was credited as an author, and no confidential or personally identifying data were entered into AI tools.</p>
+
+<h3>Declaration of Competing Interests</h3>
+<p>The authors declare no competing financial or personal interests relevant to the work reported in this article.</p>
+
+<h3>Acknowledgments</h3>
+<p>The authors thank Dr. Mark Lexter D. De Lara for the technical assistance.</p>
+
+<h2>References</h2>
+<ol class="clean-list">
+<li>Afroze, F., Begum, M. N., Ahmed, T., El Arifeen, S., Rahman, M. Z., Rahman, A. E., ... &amp; Chisti, M. J. (2024). Clinical characterisation, treatment outcomes, and case fatality risk of patients with different SARS-CoV-2 variants in Bangladesh. <em>Journal of Global Health</em>, 14. https://doi.org/10.7189/jogh.14.05009</li>
+<li>Aggarwal, M., &amp; Periwal, V. (2023). Tight basis cycle representatives for persistent homology of large biological data sets. <em>PLOS Computational Biology</em>, 19(5), e1010341. https://doi.org/10.1371/journal.pcbi.1010341</li>
+<li>Akhtar, M., Epps, J., &amp; Ambikairajah, E. (2008). Signal processing in sequence analysis: advances in eukaryotic gene prediction. <em>IEEE Journal of Selected Topics in Signal Processing</em>, 2(3), 310-321. https://doi.org/10.1109/JSTSP.2008.923854</li>
+<li>Andrew, R. (2020). Preliminary genomic characterisation of an emergent SARS-CoV-2 lineage in the UK defined by a novel set of spike mutations. <em>Virological</em>.</li>
+<li>Brzinsky-Fay, C. (2014). Graphical representation of transitions and sequences. In <em>Advances in Sequence Analysis: Theory, Method, Applications</em> (pp. 265-284). Springer International Publishing. https://doi.org/10.1007/978-3-319-04969-4_14</li>
+<li>Chaudhuri, A., Das, S., &amp; Chakrabarti, S. (2024). Mutational and evolutionary dynamics of non-structural and spike proteins from variants of concern of SARS-CoV-2 in India. <em>International Journal of Biological Macromolecules</em>, 137154. https://doi.org/10.1016/j.ijbiomac.2024.137154</li>
+<li>Davies, N. G., Abbott, S., Barnard, R. C., Jarvis, C. I., Kucharski, A. J., Munday, J. D., ... &amp; Edmunds, W. J. (2021). Estimated transmissibility and impact of SARS-CoV-2 lineage B.1.1.7 in England. <em>Science</em>, 372(6538), eabg3055.</li>
+<li>De Lara, M. L. D. (2023). Persistent homology classification algorithm. <em>PeerJ Computer Science</em>, 9, e1195. https://doi.org/10.7717/peerj-cs.1195</li>
+<li>Edelsbrunner, H., &amp; Harer, J. L. (2022). <em>Computational Topology: An Introduction</em>. American Mathematical Society.</li>
+<li>Feldman, D. P. (2012). <em>Chaos and Fractals: An Elementary Introduction</em>. Oxford University Press.</li>
+<li>Garcia-Beltran, W. F., Lam, E. C., Denis, K. S., Nitido, A. D., Garcia, Z. H., Hauser, B. M., ... &amp; Balazs, A. B. (2021). Multiple SARS-CoV-2 variants escape neutralization by vaccine-induced humoral immunity. <em>Cell</em>, 184(9), 2372-2383. https://doi.org/10.1016/j.cell.2021.03.013</li>
+<li>Gowrisankar, A., Priyanka, T. M. C., &amp; Banerjee, S. (2022). Omicron: a mysterious variant of concern. <em>The European Physical Journal Plus</em>, 137(1), 1-8. https://doi.org/10.1140/epjp/s13360-021-02321-y</li>
+<li>Harvey, W. T., Carabelli, A. M., Jackson, B., Gupta, R. K., Thomson, E. C., Harrison, E. M., ... &amp; Robertson, D. L. (2021). SARS-CoV-2 variants, spike mutations and immune escape. <em>Nature Reviews Microbiology</em>, 19(7), 409-424. https://doi.org/10.1038/s41579-021-00573-0</li>
+<li>Hoang, T., Yin, C., &amp; Yau, S. S. T. (2016). Numerical encoding of DNA sequences by chaos game representation with application in similarity comparison. <em>Genomics</em>, 108(3-4), 134-142. https://doi.org/10.1016/j.ygeno.2016.08.002</li>
+<li>Liu, C., Ginn, H. M., Dejnirattisai, W., Supasa, P., Wang, B., Tuekprakhon, A., ... &amp; Screaton, G. R. (2021). Reduced neutralization of SARS-CoV-2 B.1.617 by vaccine and convalescent serum. <em>Cell</em>, 184(16), 4220-4236. https://doi.org/10.1016/j.cell.2021.06.020</li>
+<li>Lum, P. Y., Singh, G., Lehman, A., Ishkanov, T., Vejdemo-Johansson, M., Alagappan, M., ... &amp; Carlsson, G. (2013). Extracting insights from the shape of complex data using topology. <em>Scientific Reports</em>, 3(1), 1236. https://doi.org/10.1038/srep01236</li>
+<li>Meng, Z., Anand, D. V., Lu, Y., Wu, J., &amp; Xia, K. (2020). Weighted persistent homology for biomolecular data analysis. <em>Scientific Reports</em>, 10(1), 2079. https://doi.org/10.1038/s41598-019-55660-3</li>
+<li>Motozono, C., Toyoda, M., Zahradnik, J., Saito, A., Nasser, H., Tan, T. S., ... &amp; Sato, K. (2021). SARS-CoV-2 spike L452R variant evades cellular immunity and increases infectivity. <em>Cell Host &amp; Microbe</em>, 29(7), 1124-1136. https://doi.org/10.1016/j.chom.2021.06.006</li>
+<li>Munkres, J. R. (1975). <em>Topology: A First Course</em>. Prentice Hall.</li>
+<li>Nguyen, D. Q. N., Le, P. D. T., Xing, L., &amp; Lin, L. (2022). A topological characterization of DNA sequences based on chaos geometry and persistent homology. In <em>2022 International Conference on Computational Science and Computational Intelligence</em> (pp. 1591-1597). IEEE. https://doi.org/10.1109/CSCI58124.2022.00285</li>
+<li>Parreño, S. J., &amp; Anter, M. C. J. (2024). A novel approach to analyzing Philippine inflation dynamics through persistent homology. <em>Multidisciplinary Science Journal</em>, 6(12), 2024270-2024270.</li>
+<li>Parums, D. V. (2021). Revised World Health Organization terminology for variants of concern and variants of interest of SARS-CoV-2. <em>Medical Science Monitor</em>, 27, e933622-1. https://doi.org/10.12659/MSM.933622</li>
+<li>Pereira, R., Oliveira, J., &amp; Sousa, M. (2020). Bioinformatics and computational tools for next-generation sequencing analysis in clinical genetics. <em>Journal of Clinical Medicine</em>, 9(1), 132. https://doi.org/10.3390/jcm9010132</li>
+<li>Planas, D., Veyer, D., Baidaliuk, A., Staropoli, I., Guivel-Benhassine, F., Rajah, M. M., ... &amp; Schwartz, O. (2021). Reduced sensitivity of SARS-CoV-2 variant Delta to antibody neutralization. <em>Nature</em>, 596(7871), 276-280. https://doi.org/10.1038/s41586-021-03777-9</li>
+<li>Poltronieri, P., Sun, B., &amp; Mallardo, M. (2015). RNA viruses: RNA roles in pathogenesis, coreplication and viral load. <em>Current Genomics</em>, 16(5), 327-335.</li>
+<li>Riñon, E. M. A., &amp; Sambayan, R. R. (2024). Topological approach for detection of structural breakpoints in Philippine stock price data surrounding the COVID-19 pandemic. <em>Philippine Journal of Science</em>, 153(3).</li>
+<li>Sievers, F., &amp; Higgins, D. G. (2018). Clustal Omega for making accurate alignments of many protein sequences. <em>Protein Science</em>, 27(1), 135-145. https://doi.org/10.1002/pro.3290</li>
+<li>Tegally, H., Wilkinson, E., Giovanetti, M., Iranzadeh, A., Fonseca, V., Giandhari, J., ... &amp; de Oliveira, T. (2021). Detection of a SARS-CoV-2 variant of concern in South Africa. <em>Nature</em>, 592(7854), 438-443. https://doi.org/10.1038/s41586-021-03402-9</li>
+<li>Virk, Ž. (2022). <em>Introduction to Persistent Homology</em>. Založba UL FRI.</li>
+<li>Wang, P., Nair, M. S., Liu, L., Iketani, S., Luo, Y., Guo, Y., ... &amp; Ho, D. D. (2021). Antibody resistance of SARS-CoV-2 variants B.1.351 and B.1.1.7. <em>Nature</em>, 593(7857), 130-135. https://doi.org/10.1038/s41586-021-03398-2</li>
+<li>Wasserman, L. (2018). Topological data analysis. <em>Annual Review of Statistics and Its Application</em>, 5(1), 501-532. https://doi.org/10.1146/annurev-statistics-031017-100045</li>
+<li>Wei, G. W. (2017). <em>Persistent Homology Analysis of Biomolecular Data</em>. Society for Industrial and Applied Mathematics.</li>
+<li>Wu, T., Ge, Y., Zhao, K., Zhu, X., Chen, Y., Wu, B., ... &amp; Cui, L. (2020). A reverse-transcription recombinase-aided amplification assay for the rapid detection of N gene of severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). <em>Virology</em>, 549, 1-4. https://doi.org/10.1016/j.virol.2020.07.006</li>
+<li>Yang, W., &amp; Shaman, J. L. (2022). COVID-19 pandemic dynamics in South Africa and epidemiological characteristics of three variants of concern (Beta, Delta, and Omicron). <em>eLife</em>, 11. https://doi.org/10.7554/eLife.78933</li>
+<li>Zhou, D., Dejnirattisai, W., Supasa, P., Liu, C., Mentzer, A. J., Ginn, H. M., ... &amp; Screaton, G. R. (2021). Evidence of escape of SARS-CoV-2 variant B.1.351 from natural and vaccine-induced sera. <em>Cell</em>, 184(9), 2348-2361. https://doi.org/10.1016/j.cell.2021.02.037</li>
+<li>Zomorodian, A. (2010). Fast construction of the Vietoris-Rips complex. <em>Computers and Graphics</em>, 34(3), 263-271. https://doi.org/10.1016/j.cag.2010.03.007</li>
+<li>Volz, E., Mishra, S., Chand, M., Barrett, J. C., Johnson, R., Geidelberg, L., ... &amp; Ferguson, N. M. (2021). Assessing transmissibility of SARS-CoV-2 lineage B.1.1.7 in England. <em>Nature</em>, 593(7858), 266-269. https://doi.org/10.1038/s41586-021-03470-x</li>
+</ol>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><div class="footer-brand">Tanglaw: Philippine Journal of Student and Teacher Research</div><p>A journal initiative of Padada National High School</p><p>Hosted in the Philippines and open to schools nationwide.</p></div>
+      <div><h3>Policies</h3><ul class="footer-links"><li><a href="/tanglaw/ethics-policy/">Ethics Policy</a></li><li><a href="/tanglaw/peer-review-policy/">Peer Review Policy</a></li><li><a href="/tanglaw/open-access-policy/">Open Access Policy</a></li><li><a href="/tanglaw/privacy-statement/">Privacy Statement</a></li></ul></div>
+      <div><h3>Contact</h3><ul class="footer-links"><li><a href="mailto:samueljohn.parreno@deped.gov.ph">samueljohn.parreno@deped.gov.ph</a></li><li><a href="/tanglaw/submit/">Submit a Manuscript</a></li><li><a href="/tanglaw/contact/">Editorial Inquiries</a></li></ul></div>
+    </div>
+    <div class="container footer-note"><p>© <span id="year"></span> Tanglaw. Articles may be licensed under CC BY 4.0 unless otherwise stated.</p></div>
+    <script src="/tanglaw/assets/js/site.js"></script>
+  </footer>
+</body>
+</html>
